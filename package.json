@@ -1,0 +1,38 @@
+{
+  "name": "node-scrape",
+  "version": "0.1.0",
+  "description": "node scraper",
+  "main": "src/main.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "prestart": "npm run build",
+    "start": "node lib/main.js",
+    "pretest": "npm run build",
+    "test": "node lib/main.js http://cs.lth.se/eda095/foerelaesningar/?no_cache=1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/initiumSrc/node-crawl.git"
+  },
+  "keywords": [
+	"scraper",
+    "nodejs",
+    "node",
+    "javascript",
+    "babel"
+  ],
+  "author": "Emil Hammarstrom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/initiumSrc/node-crawl/issues"
+  },
+  "homepage": "https://github.com/initiumSrc/node-crawl#readme",
+  "devDependencies": {
+    "babel-cli": "^6.10.1"
+  },
+  "dependencies": {
+    "htmlparser2": "^3.9.1",
+    "pkginfo": "^0.4.0",
+    "request": "^2.72.0"
+  }
+}
