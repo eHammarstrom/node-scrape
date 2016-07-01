@@ -23,20 +23,17 @@ const parser = new htmlparser.Parser({
 request(targetUrl, (err, res, body) => {
   if (!err && res.statusCode === 200) {
     parser.write(body);
+    savePdfs();
   } else {
     console.error(err);
     process.exit(1);
   }
-  savePdfs();
 });
 
 parser.end();
 
 function savePdfs() {
-  Storage.print();
-
   let item = Storage.next();
-  console.log(item);
   let i = 0;
   while (item != null) {
     if (item.includes('.pdf')) {
