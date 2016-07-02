@@ -16,16 +16,18 @@ const parser = new htmlparser.Parser({
   onopentag: (name, attribs) => {
     if (name === 'a' && attribs.href != null)
       Storage.append(targetUrl, attribs.href);
-  },
-  onclosetag: (tagname) => {}
-}, { decodeEntities: true });
+  }
+});
 
 request(targetUrl, (err, res, body) => {
   if (!err && res.statusCode === 200) {
     parser.write(body);
     savePdfs();
   } else {
-    console.error(err);
+    console.error(
+      'response code: ' +
+      res.statusCode +
+      '\n' + err);
     process.exit(1);
   }
 });
