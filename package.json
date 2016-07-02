@@ -15,7 +15,7 @@
     "url": "git+https://github.com/initiumSrc/node-crawl.git"
   },
   "keywords": [
-	"scraper",
+    "scraper",
     "nodejs",
     "node",
     "javascript",
@@ -33,6 +33,7 @@
   "dependencies": {
     "htmlparser2": "^3.9.1",
     "pkginfo": "^0.4.0",
-    "request": "^2.72.0"
+    "request": "^2.72.0",
+    "url": "^0.11.0"
   }
 }

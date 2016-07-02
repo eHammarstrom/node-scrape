@@ -1,3 +1,5 @@
+const url = require('url');
+
 class Vault {
   constructor() {
     this.links = [];
@@ -5,10 +7,12 @@ class Vault {
     this.pattern = /^https?:\/\//i;
   }
 
-  // Currently only handles absolute urls
-  append(link, base) {
-    if (this.links.indexOf(link) === -1 && this.pattern.test(link))
-      this.links.push(link);
+  append(base, link) {
+    let resolved = url.resolve(base, link);
+    let urlObj = url.parse(resolved);
+
+    if (['http:', 'https:'].indexOf(urlObj.protocol) >= 0)
+      this.links.push(urlObj.href);
   }
 
   next() {

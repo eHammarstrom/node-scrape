@@ -15,7 +15,7 @@ if (typeof targetUrl === 'undefined') {
 const parser = new htmlparser.Parser({
   onopentag: (name, attribs) => {
     if (name === 'a' && attribs.href != null)
-      Storage.append(attribs.href);
+      Storage.append(targetUrl, attribs.href);
   },
   onclosetag: (tagname) => {}
 }, { decodeEntities: true });
